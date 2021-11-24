@@ -9,7 +9,9 @@ class Maintenance extends Person {
 
     }
 
-    returnScooterToActive() {}
+    returnScooterToActive() {
+        
+    }
 }
 
 module.exports = Maintenance;

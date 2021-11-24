@@ -1,4 +1,5 @@
 const User = require("./user");
+const Station = require("./station");
 
 class App {
     constructor() {
@@ -8,6 +9,7 @@ class App {
     verifyAge(age) {
         return age >= 18;
     }
+
     registerUser(registrationInfo) {
         const { name, license, email, phone, age } = registrationInfo;
         if (this.verifyAge(age)) {
@@ -15,20 +17,20 @@ class App {
         }
     }
 
-    signinUser(user) {
-
+    signinUser(userCredentials) {
+        // TODO: auth flow
     }
 
     listLocations() {
-
+        return Station.listLocations();
     }
 
     listAvailbleScooters() {
-
+        return [];
     }
 
     listLocationsWithAvailability() {
-
+        return [];
     }
 
     confirmRental() {
@@ -39,7 +41,7 @@ class App {
 
     }
 
-    reportBrokenScooter(scooter) {
+    reportBrokenScooter(scooterId) {
 
     }
 

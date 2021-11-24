@@ -14,6 +14,7 @@ class Scooter {
     static allScooters() {
         return [...Scooter.scooters];
     }
+    
     static availableScooters() {
         return Scooter.scooters.filter(scooter => scooter.status === "Available");
     }

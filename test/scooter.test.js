@@ -30,6 +30,11 @@ describe("Scooter class", () => {
         expect(testScooter.batteryLevel).toBe(50);
     });
 
+    test("Scooter won't move if not enough battery", () => {
+        testScooter.move(50);
+        expect(testScooter.batteryLevel).toBe(50);
+    });
+
     test("Can list all scooters", () => {
         const scootersA = Scooter.allScooters();
         expect(scootersA.length).toBe(1);
