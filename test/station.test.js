@@ -1,5 +1,5 @@
-const Station = require('../src/station');
-const Scooter = require('../src/scooter');
+import Station from '../src/station.js';
+import Scooter from '../src/scooter.js';
 
 describe("Station class", () => {
     const location = "Main";

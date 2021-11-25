@@ -1,5 +1,5 @@
-const User = require("./user");
-const Station = require("./station");
+import User from "./user.js";
+import Station from "./station.js";
 
 class App {
     constructor() {
@@ -54,4 +54,4 @@ class App {
     }
 }
 
-module.exports = App;
+export default App;

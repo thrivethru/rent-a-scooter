@@ -1,4 +1,4 @@
-const Scooter = require('./scooter');
+import Scooter from './scooter.js';
 
 class Station {
     static currentId = 0;
@@ -32,4 +32,4 @@ class Station {
     }
 }
 
-module.exports = Station;
+export default Station;

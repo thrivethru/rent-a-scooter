@@ -1,4 +1,4 @@
-const Maintenance = require('../src/maintenance');
+import Maintenance from '../src/maintenance.js';
 
 describe("Maintenance class", () => {
     test("Creates a maintenance instance", () => {

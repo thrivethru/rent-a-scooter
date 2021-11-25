@@ -1,5 +1,5 @@
-const User = require('../src/user');
-const Scooter = require('../src/scooter');
+import User from '../src/user.js';
+import Scooter from '../src/scooter.js';
 
 describe("User class", () => {
     const testScooter = new Scooter();

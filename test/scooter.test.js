@@ -1,4 +1,4 @@
-const Scooter = require('../src/scooter');
+import Scooter from '../src/scooter.js';
 
 describe("Scooter class", () => {
     const testScooter = new Scooter();

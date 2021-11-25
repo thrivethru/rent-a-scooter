@@ -39,4 +39,4 @@ class Scooter {
     }
 }
 
-module.exports = Scooter;
+export default Scooter;

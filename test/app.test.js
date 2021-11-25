@@ -1,4 +1,4 @@
-const App = require('../src/app');
+import App from '../src/app.js';
 
 describe("App class", () => {
     const testApp = new App();

@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
+  "jest": {
+    "transform": {}
+  },
   "scripts": {
-    "test": "jest",
-    "test:report": "jest --coverage=true"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:report": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage=true"
   },
   "repository": {
     "type": "git",
