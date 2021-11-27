@@ -19,6 +19,10 @@ class Scooter {
         return Scooter.scooters.filter(scooter => scooter.status === "Available");
     }
 
+    static getScooterById(scooterId) {
+        return Scooter.scooters.find(scooter => scooter.id === scooterId);
+    }
+
     setStatus(status) {
         this.status = status;
     }

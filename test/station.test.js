@@ -24,13 +24,30 @@ describe("Station class", () => {
         expect(stationsB.every(station => station instanceof Station)).toBeTruthy();
     });
     
+    test("if there are no available scooters, returns undefined", () => {
+        expect(testStation.scooters.length).toBe(0);
+        const availableScooter = testStation.getAvailableScooter();
+        expect(availableScooter).toBeUndefined();
+    });
+
     test("can dock a scooter", () => {
+        expect(testStation.scooters.length).toBe(0);
         testStation.dockScooter(testScooter);
-        // TODO: add test
+        expect(testStation.scooters.length).toBe(1);
+        expect(testStation.scooters[0] instanceof Scooter).toBeTruthy();
+        expect(testStation.scooters[0]).toBe(testScooter);
+    });
+
+    test("can return an available scooter", () => {
+        const availableScooter = testStation.getAvailableScooter();
+        expect(availableScooter).toBeDefined();
+        expect(availableScooter instanceof Scooter).toBeTruthy();
     });
 
     test("can undock a scooter", () => {
-        testStation.unDockScooter(testScooter.id);
-        // TODO: add test
+        const availableScooter = testStation.getAvailableScooter();
+        expect(testStation.scooters.find(scooter => scooter.id === availableScooter.id)).toBeTruthy()
+        testStation.unDockScooter(availableScooter.id);
+        expect(testStation.scooters.find(scooter => scooter.id === availableScooter.id)).toBeFalsy()
     });
 });

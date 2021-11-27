@@ -16,9 +16,14 @@ class Station {
         return [...Station.stations];
     }
 
+    // Returns first scooter with available status, otherwise returns undefined
+    getAvailableScooter() {
+        return this.scooters.find(scooter => scooter.status === "Available");
+    }
+
     dockScooter(scooter) {
         // TODO: check open slots
-        //scooter.recharge(); // pseudo wait 2 hours
+        scooter.recharge(); // pseudo wait 2 hours
         this.scooters = [...this.scooters, scooter];
     }
 

@@ -7,6 +7,17 @@ describe("Scooter class", () => {
         expect(testScooter instanceof Scooter).toBeTruthy();
     });
 
+    test("has an id of type number", () => {
+        expect(typeof testScooter.id).toBe("number");
+        expect(testScooter.id).toBe(0);
+    });
+
+    test("can get a scooter by id", () => {
+        const scooter = Scooter.getScooterById(testScooter.id);
+        expect(scooter instanceof Scooter).toBeTruthy();
+        expect(scooter).toBe(testScooter);
+    });
+
     test("Scooter must start with 0 battery level", () => {
         expect(testScooter.batteryLevel).toBe(0);
     });
