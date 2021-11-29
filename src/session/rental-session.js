@@ -11,8 +11,10 @@ class RentalSession extends ScooterSession {
     }
 
     getCost() {
+        // TODO: handle floating point math issues
+        // TODO: assumes USD, allow to specify currency
         const duration = super.getSessionDuration();
-        if (duration <= 0) return this.baseFee;
+        if (duration === 0) return this.baseFee;
         const hours = duration / 1000 / 60 / 60;
         return this.baseFee + (hours * this.hourlyRate);
     }

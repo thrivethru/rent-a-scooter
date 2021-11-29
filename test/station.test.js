@@ -12,6 +12,10 @@ describe("Station class", () => {
         expect(testStation instanceof Station).toBeTruthy();
     });
 
+    test("must have a location", () => {
+        expect(testStation.location).toBe(location);
+    });
+
     test("can list stations", () => {
         const stationsA = Station.listLocations();
         expect(stationsA.length).toBe(1);
@@ -32,7 +36,7 @@ describe("Station class", () => {
 
     test("can dock a scooter", () => {
         expect(testStation.scooters.length).toBe(0);
-        testStation.dockScooter(testScooter);
+        testStation.dockScooter(testScooter.id);
         expect(testStation.scooters.length).toBe(1);
         expect(testStation.scooters[0] instanceof Scooter).toBeTruthy();
         expect(testStation.scooters[0]).toBe(testScooter);
@@ -42,6 +46,10 @@ describe("Station class", () => {
         const availableScooter = testStation.getAvailableScooter();
         expect(availableScooter).toBeDefined();
         expect(availableScooter instanceof Scooter).toBeTruthy();
+    });
+
+    test("can return count of available scooters", () => {
+        expect(testStation.getAvailableScooterCount()).toBe(1);
     });
 
     test("can undock a scooter", () => {

@@ -16,24 +16,38 @@ class Station {
         return [...Station.stations];
     }
 
+    static getStationById(stationId) {
+        return Station.stations.find(station => station.id === stationId);
+    }
+
     // Returns first scooter with available status, otherwise returns undefined
     getAvailableScooter() {
         return this.scooters.find(scooter => scooter.status === "Available");
     }
 
-    dockScooter(scooter) {
-        // TODO: check open slots
-        scooter.recharge(); // pseudo wait 2 hours
-        this.scooters = [...this.scooters, scooter];
+    getAvailableScooterCount() {
+        return this.scooters.reduce((p, c) => c.isAvailable() ? p + 1 : p, 0);
+    }
+
+    checkVacancy() {
+        return this.capacity - this.scooters.length;
+    }
+
+    dockScooter(scooterId) {
+        if (this.checkVacancy() < 1) return `There are no spaces available to dock a scooter at ${this.location}`;
+        const scooter = Scooter.getScooterById(scooterId);
+        if (scooter) {
+            scooter.recharge(); // pseudo wait 2 hours
+            this.scooters = [...this.scooters, scooter];
+            return `Docked scooter ${scooterId} at ${this.location}`;
+        } else return `Unable to find scooter ${scooterId}`;
     }
 
     unDockScooter(scooterId) {
-        // which scooter?
         // is scooter available?
-        // get scooter
-        // change scooter status to rented
+        const scooter = this.scooters.find(scooter => scooter.id === scooterId);
         this.scooters = this.scooters.filter(scooter => scooter.id != scooterId);
-        //return scooter;
+        return scooter;
     }
 }
 

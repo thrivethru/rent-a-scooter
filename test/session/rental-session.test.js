@@ -1,12 +1,12 @@
 import RentalSession from '../../src/session/rental-session.js';
 
 describe("RentalSession class", () => {
-
     const scooterId = 1;
     const userId = 1;
     const startLocationId = 1;
     const endLocationId = 2;
     const testRentalSession = new RentalSession(scooterId, userId, startLocationId);
+
     test("Creates a rental session instance", () => {
         expect(testRentalSession).toBeDefined();
         expect(testRentalSession instanceof RentalSession).toBeTruthy();

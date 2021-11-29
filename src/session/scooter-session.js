@@ -1,17 +1,13 @@
-class ScooterSession {
-    static currentId = 0;
+import Session from './session.js';
+
+class ScooterSession extends Session {
     static scooterSessions = [];
 
     constructor(type, scooterId, ownerId, startLocationId) {
-        this.id = this.constructor.currentId++;
-        this.type = type;
+        super(type, ownerId);
         this.scooterId = scooterId;
-        this.ownerId = ownerId
-        this.startTime = new Date();
         this.startLocationId = startLocationId;
-        this.endTime = null;
         this.endLocationId = null;
-        this.isActive = true;
         this.constructor.scooterSessions = [...this.constructor.scooterSessions, this];
     }
 
@@ -32,14 +28,9 @@ class ScooterSession {
     }
     
     endSession(endLocationId) {
-        this.endTime = new Date();
+        super.endSession();
         this.endLocationId = endLocationId;
-        this.isActive = false;
     }
-
-    getSessionDuration() {
-        return this.endTime ? this.endTime - this.startTime : Date.now() - this.startTime;
-    };
 }
 
 export default ScooterSession;

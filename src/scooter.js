@@ -27,6 +27,14 @@ class Scooter {
         this.status = status;
     }
 
+    isAvailable() {
+        return this.status === "Available";
+    }
+
+    getLocation() {
+        return this.location;
+    }
+
     recharge() {
         // TODO: take 2 hours to charge to 100%
         this.batteryLevel = 100;

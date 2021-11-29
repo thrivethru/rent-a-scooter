@@ -1,4 +1,5 @@
 import ScooterSession from '../../src/session/scooter-session';
+import Session from '../../src/session/session.js';
 
 describe("ScooterSession class", () => {
     const type = "Test";
